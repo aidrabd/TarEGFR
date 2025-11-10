@@ -1,0 +1,5 @@
+﻿SMILES
+CC(=O)[C@]1(O)Cc2c(O)c3c(c(O)c2[C@@H](O[C@H]2C[C@H]([NH3+])[C@H](O)[C@H](C)O2)C1)C(=O)c1ccccc1C3=O
+O=C(Nc1cnn2ccc(N3CCC[C@@H]3c3cc(F)ccc3F)nc12)N1CC[C@H](O)C1
+CONC(=O)Nc1ccc(-c2sc3c(c2C[NH+](C)C)c(=O)n(-c2ccc(OC)nn2)c(=O)n3Cc2c(F)cccc2F)cc1
+C#Cc1cccc(Nc2ncnc3cc(OCCOC)c(OCCOC)cc23)c1
