@@ -34,11 +34,11 @@ The high overall R² highlights the robustness of the model in predicting EGFR i
 ## 🔬 Key Findings
 Among the screened FDA-approved anticancer drugs:  
 
-| Compound | Predicted IC₅₀ (nM) | Docking Energy (kcal/mol) | RMSD (Å) | H-bond (Key Residue) |
-|-----------|--------------------|----------------------------|-----------|----------------------|
-| **Idarubicin** | 184.65 | -9.98 | 1.49 ± 0.24 | MET793 |
-| **Larotrectinib** | 296.64 | -9.42 | 1.34 ± 0.29 | MET793 |
-| *Reference (Erlotinib)* | — | -8.91 | — | MET793 |
+| Compound | Predicted IC₅₀ (nM) | Docking Energy (kcal/mol) | H-bond (Key Residue) |
+|-----------|--------------------|----------------------------|----------------------|
+| **Idarubicin** | 184.65 | -9.98 | MET793 |
+| **Larotrectinib** | 296.64 | -9.42 | MET793 |
+| *Reference (Erlotinib)* | 385.58 | -8.91 | MET793 |
 
 - Both **Idarubicin** and **Larotrectinib** exhibited higher binding affinities and more stable EGFR complexes than Erlotinib.  
 - **Molecular dynamics simulations (100 ns)** confirmed stable binding conformations.  
@@ -51,13 +51,49 @@ Among the screened FDA-approved anticancer drugs:
 
 ### Prerequisites
 - Python ≥ 3.8  
-- `pip` or `conda` package manager  
+- `conda` package manager  
 
-### Quick Install
+### Install
+### Prerequisites
+
+- Ubuntu/Linux terminal/Window Command Line
+
+### Installation
+
 ```bash
+# Clone and setup
 git clone https://github.com/aidrabd/TarEGFR.git
 cd TarEGFR
-pip install -r requirements.txt
+
+# Make prediction script executable
+chmod +x predict.py
+```
+
+First, make sure you have conda installed:
+
+```bash
+1. Install  Miniconda (if not installed)
+
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+
+2. Activate conda base environment
+
+Type "conda init"
+
+Then, restart your terminal
+
+After that, activate the base environment with:
+
+conda activate
+```
+
+Second, make sure you have Python specific version installed:
+
+```bash
+conda create -n py312 python=3.12.9
+conda activate py312
+python --version
 ```
 
 ---
@@ -67,8 +103,8 @@ pip install -r requirements.txt
 ### Command Line Usage
 ```bash
 python predict.py
-# Provide input file name (e.g., sample.csv) containing:
-# Columns: SMILES, pIC50 (Leave pIC50 empty for prediction)
+# Provide input file name (e.g., sample.csv)
+# Columns required in File: SMILES, pIC50 (Leave pIC50 empty for prediction)
 ```
 
 ### 🧾 Input Format
@@ -76,7 +112,7 @@ python predict.py
 |---------|--------------|
 | **SMILES** | Simplified Molecular Input Line Entry System notation |
 | **pIC50** | Predicted biological activity (keep empty for prediction) |
-
+# See sample.csv file to prepare your own file.
 ---
 
 ## 📖 Scientific Background
@@ -114,12 +150,10 @@ This project is licensed under the **MIT License** — see the [LICENSE](./LICEN
 ## 📚 Citation
 If you use **TarEGFR** in your research, please cite:  
 
-> *Al Ashik S.A.A. et al. (2025). TarEGFR: Machine Learning–Aided Drug Repurposing Tool for EGFR Inhibition and Resistance Management in NSCLC.*
-
 ---
 
 ## 🙏 Acknowledgments
 - Training data curated from **ChEMBL** and published literature  
 - Molecular descriptors generated using **RDKit**  
-- Molecular docking and dynamics simulations performed using **AutoDock Vina** and **GROMACS**  
+- Molecular docking and dynamics simulations performed using **AutoDock Vina** and **Schrodinger's DESMOND**  
 - Special thanks to the **open-source bioinformatics and cheminformatics communities**
